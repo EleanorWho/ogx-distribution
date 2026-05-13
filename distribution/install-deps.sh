@@ -13,6 +13,8 @@ uv pip install --upgrade \
     'botocore==1.35.88' \
     'boto3==1.35.88' \
     'aiobotocore==2.16.1' \
+    'ibm-cos-sdk-core==2.14.2' \
+    'ibm-cos-sdk==2.14.2' \
     'setuptools==80.10.2'
 uv pip install \
     'fonttools>=4.60.2' \
