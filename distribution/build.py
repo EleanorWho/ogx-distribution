@@ -314,12 +314,28 @@ def get_dependencies():
                     packages.append(parts_list[i])
                     i += 1
 
-            # Sort and deduplicate packages
-            packages = sorted(set(packages))
+            # Sort and deduplicate packages; for repeated >= constraints
+            # on the same package, keep only the highest minimum version.
+            best = {}
+            for pkg in sorted(set(packages)):
+                m = re.match(r"(.+?)>=(.+)", pkg)
+                if not m:
+                    best.setdefault(pkg.lower(), pkg)
+                    continue
+                key = m[1].lower()
+                ver = tuple(int(x) if x.isdigit() else x for x in m[2].split("."))
+                if key not in best or ver > best[key][1]:
+                    best[key] = (pkg, ver)
+            packages = sorted(
+                v[0] if isinstance(v, tuple) else v for v in best.values()
+            )
 
-            # Add quotes to packages with > or < to prevent bash redirection
+            # Add quotes to packages with >, <, or [ to prevent bash
+            # redirection and glob interpretation (shellcheck SC2102).
             packages = [
-                f"'{package}'" if (">" in package or "<" in package) else package
+                f"'{package}'"
+                if (">" in package or "<" in package or "[" in package)
+                else package
                 for package in packages
             ]
 
