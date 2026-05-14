@@ -1,0 +1,51 @@
+[
+  {
+    "date": "2026-05-14 14:56 UTC",
+    "run_number": "4",
+    "run_id": "25865564840",
+    "run_url": "https://github.com/opendatahub-io/ogx-distribution/actions/runs/25865564840",
+    "ogx_version": "1.0.0+rhaiv.0",
+    "branch": "wip-run-responses-tests",
+    "commit": "180713a4",
+    "totals": {
+      "passed": 661,
+      "failed": 172,
+      "skipped": 235,
+      "error": 48
+    },
+    "models": [
+      {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "passed": 185,
+        "failed": 21,
+        "skipped": 61,
+        "error": 12
+      },
+      {
+        "provider": "openai",
+        "model": "gpt-4o",
+        "passed": 185,
+        "failed": 21,
+        "skipped": 61,
+        "error": 12
+      },
+      {
+        "provider": "openai",
+        "model": "o4-mini",
+        "passed": 136,
+        "failed": 76,
+        "skipped": 55,
+        "error": 12
+      },
+      {
+        "provider": "vllm-maas",
+        "model": "llama-3-2-3b",
+        "passed": 155,
+        "failed": 54,
+        "skipped": 58,
+        "error": 12
+      }
+    ]
+  }
+]
