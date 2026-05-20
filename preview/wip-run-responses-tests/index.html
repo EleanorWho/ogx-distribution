@@ -129,13 +129,15 @@ fetch('history.json').then(r => r.json()).then(data => {
   }
 
   function sumBy(run, key, filterFn) {
-    return run.models.filter(filterFn).reduce((s, m) => s + m[key], 0);
+    const matched = run.models.filter(filterFn);
+    if (matched.length === 0) return null;
+    return matched.reduce((s, m) => s + m[key], 0);
   }
 
   const releaseLabels = data.map(d => d.ogx_version);
   const tooltipCb = {
     title: (items) => { const d = data[items[0].dataIndex]; return 'OGX ' + d.ogx_version + '  —  ' + d.date; },
-    label: (item) => `${item.dataset.label}: ${item.raw} passed`
+    label: (item) => item.raw == null ? null : `${item.dataset.label}: ${item.raw} passed`
   };
 
   // ── Trend by Provider ──
