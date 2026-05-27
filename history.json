@@ -1,0 +1,43 @@
+[
+  {
+    "date": "2026-05-27 08:23 UTC",
+    "run_number": "23",
+    "run_id": "26499400602",
+    "run_url": "https://github.com/opendatahub-io/ogx-distribution/actions/runs/26499400602",
+    "ogx_version": "1.0.2+rhaiv.0",
+    "branch": "main",
+    "commit": "a7a3682d",
+    "totals": {
+      "passed": 348,
+      "failed": 42,
+      "skipped": 229,
+      "error": 218
+    },
+    "models": [
+      {
+        "provider": "openai",
+        "model": "gpt-4.1-nano",
+        "passed": 195,
+        "failed": 11,
+        "skipped": 61,
+        "error": 12
+      },
+      {
+        "provider": "vertexai",
+        "model": "gemini-2.0-flash",
+        "passed": 128,
+        "failed": 3,
+        "skipped": 148,
+        "error": 0
+      },
+      {
+        "provider": "vllm-maas",
+        "model": "Qwen3.6-35B-A3B",
+        "passed": 25,
+        "failed": 28,
+        "skipped": 20,
+        "error": 206
+      }
+    ]
+  }
+]
