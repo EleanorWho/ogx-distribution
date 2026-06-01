@@ -107,7 +107,7 @@ The Gemini provider is enabled by setting `ENABLE_GEMINI=1`. It supports two aut
 
 | Method | Env vars | Use case |
 |---|---|---|
-| **API key** | `ENABLE_GEMINI` + `GEMINI_API_KEY` | Keys from [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key). Sent as a `?key=` query parameter. |
+| **API key** | `ENABLE_GEMINI` + `GEMINI_API_KEY` | Keys from [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key). Sent as an `x-goog-api-key` header. |
 | **OAuth/ADC** | `ENABLE_GEMINI` + `GEMINI_ACCESS_TOKEN` + `GEMINI_AI_PROJECT` | Short-lived tokens from `gcloud` SSO. Sent as `Authorization: Bearer` header. |
 
 ### Running Gemini with OGX
