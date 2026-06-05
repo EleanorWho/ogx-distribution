@@ -3,6 +3,7 @@
 ogx-api @ git+https://github.com/opendatahub-io/ogx.git@v1.0.2+rhaiv.0#subdirectory=src/ogx_api
 ogx @ git+https://github.com/opendatahub-io/ogx.git@v1.0.2+rhaiv.0
 aiosqlite
+anthropic
 asyncpg
 boto3
 chardet
