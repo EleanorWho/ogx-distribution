@@ -24,7 +24,7 @@ on:
   workflow_dispatch:
     inputs:
       inference_model:
-        description: 'Inference model to preload onto vLLM image - default is Qwen/Qwen3-0.6B'
+        description: 'Inference model to preload onto vLLM image - default is Qwen/Qwen3.5-0.8B'
         type: string
       embedding_model:
         description: 'Embedding model to preload onto vLLM image - default is ibm-granite/granite-embedding-125m-english'
@@ -46,14 +46,14 @@ jobs:
             runner: ubuntu-24.04-arm
     runs-on: ${{ matrix.runner }}
     env:
-      INFERENCE_MODEL: ${{ github.event.inputs.inference_model || 'Qwen/Qwen3-0.6B' }}
+      INFERENCE_MODEL: ${{ github.event.inputs.inference_model || 'Qwen/Qwen3.5-0.8B' }}
       EMBEDDING_MODEL: ${{ github.event.inputs.embedding_model || 'ibm-granite/granite-embedding-125m-english' }}
     permissions:
       contents: read
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: Set image tag components
         run: |
@@ -178,7 +178,7 @@ jobs:
     if: contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name)
     runs-on: ubuntu-latest
     env:
-      INFERENCE_MODEL: ${{ github.event.inputs.inference_model || 'Qwen/Qwen3-0.6B' }}
+      INFERENCE_MODEL: ${{ github.event.inputs.inference_model || 'Qwen/Qwen3.5-0.8B' }}
       EMBEDDING_MODEL: ${{ github.event.inputs.embedding_model || 'ibm-granite/granite-embedding-125m-english' }}
     permissions:
       contents: read
