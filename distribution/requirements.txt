@@ -16,7 +16,7 @@ google-genai>=1.69.0
 httpx
 matplotlib
 mcp>=1.23.0
-milvus-lite==2.5.1; platform_machine != "ppc64le"
+milvus-lite>=3.0.0
 nltk>=3.9.4
 numpy
 opentelemetry-exporter-otlp-proto-http
@@ -47,6 +47,7 @@ opentelemetry-sdk
 pandas
 pillow
 psycopg2-binary
+pymilvus!=2.6.10
 pymilvus>=2.6.2
 pymilvus[milvus-lite]>=2.4.10
 pymongo
