@@ -29,6 +29,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
         with:
           path: ogx-distribution
+          persist-credentials: false
 
       - name: Install uv
         uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
@@ -52,7 +53,7 @@ jobs:
 
       - name: Setup CI environment
         id: setup
-        uses: opendatahub-io/ogx-showroom@a3a6adc939c464c9acc7f224482f5dacbf83558d  # main as of 2026-06-16
+        uses: opendatahub-io/ogx-showroom@a3a6adc939c464c9acc7f224482f5dacbf83558d  # main as of 2026-06-09
         with:
           catalog_image: ${{ inputs.catalog_image }}
           ogx_image: "image-registry.openshift-image-registry.svc:5000/redhat-ods-operator/ogx-test:${{ steps.build.outputs.tag }}"
