@@ -127,7 +127,7 @@ jobs:
             ":failed: *Upstream CI failed on showroom*" \
             "Failed step: ${FAILED_STEP}" \
             "<${WORKFLOW_URL}|View workflow run>")
-          bash .github/actions/notify-slack/notify.sh "$TEXT" "#d00000"
+          bash ogx-distribution/.github/actions/notify-slack/notify.sh "$TEXT" "#d00000"
 
       - name: Run unprovision.sh
         if: always()
