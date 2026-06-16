@@ -275,7 +275,7 @@ function test_rag_file_ingestion {
 
   vs_resp=$(curl -fsS "$OGX_BASE_URL/v1/vector_stores" \
     -H "Content-Type: application/json" \
-    -d '{"name":"smoke-test-rag"}')
+    -d "{\"name\":\"smoke-test-rag\",\"embedding_model\":\"$EMBEDDING_MODEL\"}")
   echo "Vector store response: $vs_resp"
 
   vs_id=$(echo "$vs_resp" | python3 -c "import sys,json; print(json.load(sys.stdin)['id'])" 2>/dev/null)
